@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html>
+<head>
+
+    <meta charset="uft-8">
+    
+<title>Cadastro de usuário</title>
+<script src='jquery-3.4.1.min.js'></script>
+<script src='javascript.js'></script>
+<link rel='stylesheet' href='stylesheet.css'>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>
+<script src="http://code.jquery.com/jquery-1.11.2.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.1/js/bootstrap.min.js"></script>
+
+
+</head>
+
+
+<body>
+ 
+<form id ='funcionario' method="POST" action="index.php"> 
+
+<div id="fContato" name="Usuário"   >
+    <fieldset id ='usuario'><legend>Ficha de cadastro</legend>
+		<p><label for="cNome">Nome: </label> <input type="text" name="tNome" id="cNome" size="20" maxlength="30" placeholder="Nome Completo"/> </p>
+		<p><label for="cIdade">Idade: </label> <input type="text" name="tIdade" id="cIdade" size="20" maxlength="30" placeholder="Idade"/> </p>
+        <legend>Possui filhos?</legend>
+
+        <form id="sexoFilho" id="fFuncionario"  >
+		    <input type="radio" name="possuiF" id="pf" value="Sim" onclick="Mudarestado('filho')"/> <label for="pf">Sim</label><br/>
+            <input type="radio" name="possuiF" id="np" value="Não" onclick="Mudarestadoof('filho')" /> <label for="np">Não</label> <br/>
+            <input type="submit" value="Enviar" name="btnenv">
+            <input type="button" value="Adicionar" class="add" id='btnadd'>
+    </form>
+   </fieldset>
+</div>
+        
+  
+</br>
+
+
+    <div id='filho' class='form' name='fFusuario' style="display:none"  >
+              <p>
+                <fieldset ><legend>Cadastro de filho</legend>            
+                 <p><label for="fNome">Nome do filho: </label> <input type="text" name="nFnome" id="nCnome" size="20" maxlength="30" placeholder="Nome Completo do filho"/> </p>
+                 <p><label for="fIdade">Idade do filho: </label> <input type="text" name="ffIdade" id="nfIdade" size="20" maxlength="30" placeholder="Idade do filho"/> </p>
+                                 
+                 <input type="radio" name="sexo" value="Masculino" id="mSexo" /> <label for="mSexo">Masculino</label>
+                 <input type="radio" name="sexo" value ="Feminino" id="fSexo"  /> <label for="fSexo">Feminino</label> <br/><br/>
+                 
+                 <input type="button" value="Excluir" id='btnexc'/>
+                </fieldset>
+                
+             </p> 
+        
+ 
+    </div>
+ <script>
+    $(function () {
+        var scntDiv = $('#filho');
+        $(document).on('click', '#btnadd', function () {
+            $('<p>'+
+                '<fieldset><legend>Cadastro de filho</legend>'+
+                ' <p><label for="fNome">Nome: </label> <input type="text" name="nFnome" id="nCnome" size="20" maxlength="30" placeholder="Nome Completo do filho"/>'+ 
+                 '<p><label for="fIdade">Idade: </label> <input type="text" name="fIdade" id="nfIdade" size="20" maxlength="30" placeholder="Idade do filho"/> </p>'+
+                '<input type="radio" name="sexo" id="mSexo" /> <label for="mSexo">Masculino</label>'+
+                '<input type="radio" name="sexo" id="fSexo"  /> <label for="fSexo">Feminino</label> <br/><br/>'+                
+                '<input type="button" value="Excluir" id="btnexc"/>'+ 
+                '</fieldset>'+ 
+
+            '</p>').appendTo(scntDiv);
+            return false;
+        });
+        $(document).on('click', '#btnexc', function () {
+            $(this).parents('p').remove();
+            return false;
+        });
+    });
+    </script>
+</form>
+
+ 
+ 
+</body>
+</html>
+
+
+
+
+
